@@ -1,4 +1,4 @@
-package be.create.convoy.minigamelib.mixin;
+package be.convoy.create.minigamelib.mixin;
 
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;

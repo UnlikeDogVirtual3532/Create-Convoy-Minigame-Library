@@ -16,15 +16,11 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"be.create.convoy.minigamelib.CreateConvoyMinigameLibrary"
+			"be.convoy.create.minigamelib.CreateConvoyMinigameLibrary"
 		]
 	},
 	"mixins": [
-		"ccml.mixins.json",
-		{
-			"config": "ccml.client.mixins.json",
-			"environment": "client"
-		}
+		"ccml.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.16.5",
