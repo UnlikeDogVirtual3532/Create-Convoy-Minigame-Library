@@ -20,6 +20,6 @@ public class CreateConvoyMinigameLibrary implements ModInitializer {
 			CommandRegistry.register(dispatcher);
 		});
 
-		MinigameType.register(new Identifier(MOD_ID, MOD_ID));
+		MinigameType.register(new Identifier(MOD_ID, MOD_ID), null);
 	}
 }

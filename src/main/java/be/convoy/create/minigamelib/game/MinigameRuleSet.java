@@ -1,6 +1,6 @@
 package be.convoy.create.minigamelib.game;
 
-public class RuleSet {
+public class MinigameRuleSet {
     public enum GameMode {
         CREATIVE,
         SURVIVAL,

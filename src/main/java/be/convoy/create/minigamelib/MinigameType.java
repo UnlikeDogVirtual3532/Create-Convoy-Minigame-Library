@@ -1,6 +1,7 @@
 package be.convoy.create.minigamelib;
 
 import be.convoy.create.minigamelib.registry.MinigameRegistry;
+import be.convoy.create.minigamelib.game.BaseMinigame;
 import net.minecraft.util.Identifier;
 
 public final class MinigameType {
@@ -12,11 +13,10 @@ public final class MinigameType {
         this.identifier = identifier;
     }
 
-    public static MinigameType register(Identifier identifier) {
+    public static MinigameType register(Identifier identifier, Class<? extends BaseMinigame> clazz) {
         MinigameType minigameType = new MinigameType(identifier);
         
         CreateConvoyMinigameLibrary.LOGGER.info("New Minigame Registered: " + minigameType.getIdentifier().toString());
-        registry.register(identifier, minigameType);
 
         return minigameType;
     }
