@@ -2,6 +2,7 @@ package be.convoy.create.minigamelib;
 
 import be.convoy.create.minigamelib.registry.MinigameRegistry;
 import be.convoy.create.minigamelib.game.BaseMinigame;
+import be.convoy.create.minigamelib.game.MinigameRuleSet;
 import net.minecraft.util.Identifier;
 
 public final class MinigameType {
@@ -16,11 +17,18 @@ public final class MinigameType {
     }
 
     public static MinigameType register(Identifier identifier, Class<? extends BaseMinigame> clazz) {
-        MinigameType minigameType = new MinigameType(identifier, clazz);
-        
-        CreateConvoyMinigameLibrary.LOGGER.info("New Minigame Registered: " + minigameType.getIdentifier().toString());
 
-        return minigameType;
+        CreateConvoyMinigameLibrary.LOGGER.info("New Minigame Registered: " + identifier.toString());
+
+        if (clazz != null) {
+            MinigameType minigameType = new MinigameType(identifier, clazz);
+            registry.register(identifier, minigameType);
+            return new MinigameType(identifier, clazz);
+        }
+
+        MinigameType minigameType = new MinigameType(identifier, clazz);
+        registry.register(identifier, minigameType);
+        return new MinigameType(identifier, BaseMinigameType.class);
     }
 
     public static MinigameRegistry<MinigameType> getRegistry() {
@@ -33,5 +41,15 @@ public final class MinigameType {
 
     public Class<? extends BaseMinigame> getRepresenter() {
         return this.representer;
+    }
+
+    private class BaseMinigameType extends BaseMinigame {
+
+        @Override
+        public MinigameRuleSet applyRuleSet() {
+            MinigameRuleSet ruleSet = new MinigameRuleSet();
+
+            return ruleSet;
+        }
     }
 }
