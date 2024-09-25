@@ -8,11 +8,11 @@ public final class MinigameType {
     private static final MinigameRegistry<MinigameType> registry = MinigameRegistry.create();
 
     private final Identifier identifier;
-    private final Class<? extends BaseMinigame> baseClass;
+    private final Class<? extends BaseMinigame> representer;
 
     private MinigameType(Identifier identifier, Class<? extends BaseMinigame> representer) {
         this.identifier = identifier;
-        this.baseClass = representer;
+        this.representer = representer;
     }
 
     public static MinigameType register(Identifier identifier, Class<? extends BaseMinigame> clazz) {
@@ -29,5 +29,9 @@ public final class MinigameType {
 
     public Identifier getIdentifier() {
         return this.identifier;
+    }
+
+    public Class<? extends BaseMinigame> getRepresenter() {
+        return this.representer;
     }
 }
