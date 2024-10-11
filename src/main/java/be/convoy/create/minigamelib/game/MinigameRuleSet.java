@@ -3,7 +3,6 @@ package be.convoy.create.minigamelib.game;
 import java.util.HashMap;
 
 import be.convoy.create.minigamelib.CreateConvoyMinigameLibrary;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.GameRules;
 
